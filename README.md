@@ -1,1 +1,1 @@
-# algi.dev
+# alghifrri.github.io

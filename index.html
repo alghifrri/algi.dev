@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algi Alghifari | IT Support & Data Admin</title>
+    
+    <!-- FAVICON -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    <!-- FONTS & ICONS -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* ================= VARIABEL WARNA ================= */
+        :root {
+            --bg-light: #f4f7f9; 
+            --bg-white: #ffffff;
+            --text-dark: #0f172a; 
+            --text-muted: #475569;
+            --primary: #1e3a8a; 
+            --accent: #d97706; 
+            --border-color: #e2e8f0;
+            --glow: rgba(217, 119, 6, 0.4); 
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* ================= BACKGROUND PARTIKEL ================= */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0; left: 0;
+            z-index: -1;
+            background-color: var(--bg-light);
+        }
+
+        /* ================= GARIS PEMBATAS ANIMASI ================= */
+        .animated-divider {
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--primary), var(--accent), var(--primary), transparent);
+            background-size: 200% 100%;
+            animation: moveGradient 3s linear infinite;
+            margin: 0 auto;
+            border-radius: 2px;
+            opacity: 0.7;
+        }
+
+        @keyframes moveGradient {
+            0% { background-position: 100% 0; }
+            100% { background-position: -100% 0; }
+        }
+
+        /* ================= NAVIGASI ================= */
+        nav {
+            position: fixed;
+            top: 0; width: 100%;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .logo {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+        }
+
+        .logo span { color: var(--accent); }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav ul li a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0; height: 2px;
+            bottom: -5px; left: 0;
+            background-color: var(--accent);
+            transition: width 0.3s;
+        }
+
+        nav ul li a:hover::after { width: 100%; }
+        nav ul li a:hover { color: var(--primary); }
+
+        /* ================= HERO SECTION ================= */
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 8%;
+            padding-top: 80px;
+            gap: 50px;
+        }
+
+        .hero-content {
+            max-width: 650px;
+            z-index: 2;
+        }
+
+        .hero-subtitle {
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 1rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            line-height: 1.1;
+            color: var(--primary);
+            margin-bottom: 25px;
+            letter-spacing: -1px;
+        }
+
+        .hero-content p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            max-width: 600px;
+        }
+
+               /* ================= FOTO PROFIL BULAT (SETENGAH BADAN) ================= */
+        .hero-image img {
+            width: 380px; 
+            height: 380px; /* Kunci bentuknya jadi persegi sempurna */
+            border-radius: 50%; /* Membuatnya jadi bulat */
+            object-fit: cover; 
+            object-position: center 10%; /* TRIK UTAMA: Mengambil fokus dari 10% atas (area kepala) */
+            border: 8px solid var(--bg-white);
+            box-shadow: 0 0 30px var(--glow), 0 20px 40px rgba(0,0,0,0.15);
+            animation: floating 6s ease-in-out infinite;
+            position: relative;
+            z-index: 2;
+            transition: all 0.4s ease;
+        }
+
+        /* Animasi melayang */
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        
+        .hero-image::before {
+            content: '';
+            position: absolute;
+            top: -20px; left: -20px; right: -20px; bottom: -20px;
+            border-radius: 50%;
+            border: 2px dashed var(--accent);
+            animation: spin 20s linear infinite;
+            z-index: 1;
+        }
+
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        @keyframes spin {
+            100% { transform: rotate(360deg); }
+        }
+
+        .btn {
+            padding: 16px 36px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: var(--primary);
+            color: white;
+            box-shadow: 0 10px 15px -3px rgba(30, 58, 138, 0.3);
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px var(--glow);
+        }
+
+        /* ================= SECTION UMUM ================= */
+        section {
+            padding: 100px 8%;
+            position: relative;
+        }
+
+        .section-header {
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            left: 0; bottom: 0;
+            width: 60px; height: 4px;
+            background-color: var(--accent);
+            border-radius: 2px;
+        }
+
+        /* ================= KARTU DENGAN NUANSA WARNA ================= */
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 35px;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.05);
+            transform-style: preserve-3d;
+            border-top: 6px solid transparent;
+        }
+
+        .card:hover {
+            box-shadow: 0 20px 30px -5px rgba(0,0,0,0.1);
+            transform: translateY(-8px);
+        }
+
+        .theme-blue { border-top-color: #3b82f6; background: linear-gradient(180deg, rgba(239, 246, 255, 0.95) 0%, rgba(255, 255, 255, 0.95) 100%); }
+        .theme-gold { border-top-color: #d97706; background: linear-gradient(180deg, rgba(255, 251, 235, 0.95) 0%, rgba(255, 255, 255, 0.95) 100%); }
+        .theme-purple { border-top-color: #8b5cf6; background: linear-gradient(180deg, rgba(245, 243, 255, 0.95) 0%, rgba(255, 255, 255, 0.95) 100%); }
+        .theme-green { border-top-color: #10b981; background: linear-gradient(180deg, rgba(236, 253, 245, 0.95) 0%, rgba(255, 255, 255, 0.95) 100%); }
+        .theme-coral { border-top-color: #f43f5e; background: linear-gradient(180deg, rgba(255, 241, 242, 0.95) 0%, rgba(255, 255, 255, 0.95) 100%); }
+        .theme-cyan { border-top-color: #06b6d4; background: linear-gradient(180deg, rgba(236, 254, 255, 0.95) 0%, rgba(255, 255, 255, 0.95) 100%); }
+        .theme-teal { border-top-color: #14b8a6; background: linear-gradient(180deg, rgba(240, 253, 250, 0.95) 0%, rgba(255, 255, 255, 0.95) 100%); } 
+
+        .card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .theme-blue h3 i { color: #3b82f6; }
+        .theme-gold h3 i { color: #d97706; }
+        .theme-purple h3 i { color: #8b5cf6; }
+        .theme-green h3 i { color: #10b981; }
+        .theme-coral h3 i { color: #f43f5e; }
+        .theme-cyan h3 i { color: #06b6d4; }
+        .theme-teal h3 i { color: #14b8a6; }
+
+        /* ================= TIMELINE PENGALAMAN ================= */
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .timeline-item h3 {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .timeline-date {
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .timeline-item ul {
+            list-style-type: none;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+        }
+
+        .timeline-item ul li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .timeline-item ul li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+            font-size: 1.5rem;
+            line-height: 1;
+            top: -2px;
+        }
+
+        /* ================= GRID LAYOUTS ================= */
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+
+        /* ================= TAGS (KEAHLIAN) ================= */
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .tag {
+            background: var(--bg-white);
+            color: var(--text-dark);
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid var(--border-color);
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        .tag:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* ================= GALERI GAMBAR PROYEK ================= */
+        .project-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .gallery-item {
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            background: #e2e8f0;
+            aspect-ratio: 16/9;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-item::after {
+            content: '\f00e'; /* Ikon search */
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 1.5rem;
+            opacity: 0;
+            transition: opacity 0.3s;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .gallery-item:hover::after {
+            opacity: 1;
+        }
+
+        /* ================= PROGRESS BAR ================= */
+        .skill-bar { margin-bottom: 20px; }
+
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .progress-line {
+            width: 100%;
+            height: 8px;
+            background: var(--border-color);
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-line span {
+            height: 100%;
+            position: absolute;
+            left: 0; top: 0;
+            background: linear-gradient(90deg, #f43f5e, #fb923c);
+            border-radius: 10px;
+            width: 0; 
+            transition: width 1.5s cubic-bezier(0.1, 0.8, 0.2, 1);
+        }
+
+        /* ================= BACK TO TOP ================= */
+        #backToTop {
+            position: fixed;
+            bottom: 30px; right: 30px;
+            width: 50px; height: 50px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 999;
+        }
+
+        #backToTop.show { opacity: 1; visibility: visible; }
+        #backToTop:hover { background: var(--accent); transform: translateY(-5px); }
+
+        /* ================= FOOTER ================= */
+        footer {
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 40px;
+            font-size: 0.9rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        footer span { color: var(--accent); font-weight: bold; }
+
+        /* ================= ANIMASI SCROLL ================= */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            nav ul { display: none; }
+            #hero { flex-direction: column-reverse; text-align: center; justify-content: center; gap: 30px; }
+            .hero-content h1 { font-size: 2.8rem; }
+            .hero-image img { width: 280px; height: 280px; }
+            .grid-2 { grid-template-columns: 1fr; }
+            section { padding: 60px 5%; }
+        }
+                /* ================= MARQUEE TECH STACK ================= */
+        .tech-marquee-container {
+            width: 100%;
+            max-width: 450px; /* Menyesuaikan lebar foto */
+            margin: 20px auto 0 auto;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(30, 58, 138, 0.2);
+            border-radius: 50px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 8px 32px rgba(30, 58, 138, 0.1);
+            display: flex;
+            align-items: center;
+            padding: 12px 0;
+        }
+
+        .tech-marquee-container::before,
+        .tech-marquee-container::after {
+            content: '';
+            position: absolute;
+            top: 0; bottom: 0;
+            width: 40px;
+            z-index: 2;
+        }
+
+        .tech-marquee-container::before {
+            left: 0;
+            background: linear-gradient(to right, rgba(255,255,255,1), transparent);
+        }
+
+        .tech-marquee-container::after {
+            right: 0;
+            background: linear-gradient(to left, rgba(255,255,255,1), transparent);
+        }
+
+        .tech-marquee {
+            display: flex;
+            white-space: nowrap;
+            animation: scrollMarquee 15s linear infinite;
+        }
+
+        .tech-marquee:hover {
+            animation-play-state: paused;
+        }
+
+        .tech-marquee span {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 0 15px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .tech-marquee span i {
+            color: var(--accent);
+        }
+
+        @keyframes scrollMarquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+                /* Pewarnaan Ikon Marquee */
+        .tech-marquee span:nth-child(1) i { color: #3b82f6; } /* Biru MikroTik */
+        .tech-marquee span:nth-child(2) i { color: #000000; } /* Hitam Linux */
+        .tech-marquee span:nth-child(3) i { color: #f97316; } /* Oranye Proxmox */
+        .tech-marquee span:nth-child(4) i { color: #2496ED; } /* Biru Docker */
+        .tech-marquee span:nth-child(7) i { color: #107C41; } /* Hijau Excel */
+        .tech-marquee span:nth-child(8) i { color: #2B579A; } /* Biru Word */
+        .tech-marquee span:nth-child(9) i { color: #4285F4; } /* Biru Google */
+    </style>
+</head>
+<body>
+
+    <div id="particles-js"></div>
+
+    <!-- NAVIGASI -->
+    <nav>
+        <div class="logo">Algi<span>.dev</span></div>
+        <ul>
+            <li><a href="#tentang">Tentang</a></li>
+            <li><a href="#pengalaman">Pengalaman</a></li>
+            <li><a href="#aplikasi">Aplikasi</a></li>
+            <li><a href="#keahlian">Keahlian</a></li>
+        </ul>
+    </nav>
+
+         <!-- HERO SECTION -->
+    <section id="hero">
+        <div class="hero-content reveal">
+            
+            <!-- TEKS BERJALAN (MARQUEE) DI ATAS SUBTITLE -->
+            <div class="tech-marquee-container" style="margin: 0 0 20px 0; max-width: 100%;">
+                                  <div class="tech-marquee">
+                    <span><i class="fas fa-network-wired"></i> IT Support</span>
+                    <span><i class="fas fa-headset"></i> Helpdesk & Ticketing</span>
+                    <span><i class="fas fa-tools"></i> Hardware Troubleshooting</span>
+                    <span><i class="fab fa-linux"></i> Linux & Docker</span>
+                    <span><i class="fas fa-user-cog"></i> User & Asset Management</span>
+                    <span><i class="fas fa-file-excel"></i> Data Administration</span>
+                    
+                    <!-- Duplikat -->
+                    <span><i class="fas fa-network-wired"></i> IT Support</span>
+                    <span><i class="fas fa-headset"></i> Helpdesk & Ticketing</span>
+                    <span><i class="fas fa-tools"></i> Hardware Troubleshooting</span>
+                    <span><i class="fab fa-linux"></i> Linux & Docker</span>
+                    <span><i class="fas fa-user-cog"></i> User & Asset Management</span>
+                    <span><i class="fas fa-file-excel"></i> Data Administration</span>
+                </div>
+            </div>
+
+            <span class="hero-subtitle">IT SUPPORT | NETWORK ENGINEER | DATA ADMIN</span>
+            <h1>Halo, Saya <br>Algi Alghifari</h1>
+            <p>Lulusan D3 Teknik Komputer - Politeknik Sukabumi dengan <strong>Predikat Pujian (Excellent)</strong>. Siap memberikan solusi teknis infrastruktur jaringan dan pengolahan data administrasi secara profesional.</p>
+            
+            <!-- TOMBOL AKSI (PORTFOLIO & CV) -->
+            <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                
+                <!-- Tombol Portofolio (Biru Tetap) -->
+                <a href="#tentang" class="btn" style="margin: 0; background-color: #1e3a8a; color: white; box-shadow: 0 4px 6px rgba(30, 58, 138, 0.3);" onmouseover="this.style.backgroundColor='#1e3a8a'; this.style.color='white'; this.style.transform='translateY(-3px)';" onmouseout="this.style.backgroundColor='#1e3a8a'; this.style.color='white'; this.style.transform='translateY(0)';">
+                    <i class="fas fa-arrow-down"></i> Lihat Portofolio
+                </a>
+                
+                <!-- Tombol Lihat CV (Oranye Solid) -->
+                <a href="https://drive.google.com/file/d/1_OU1oi57bzajRWZ4JYGhTNnSCcn_oKkA/view?usp=sharing" target="_blank" class="btn" style="margin: 0; background-color: #d97706; color: white; box-shadow: 0 4px 6px rgba(217, 119, 6, 0.3);">
+                    <i class="fas fa-file-pdf"></i> Lihat CV
+                </a>
+
+            </div>
+        </div>
+        
+        <div class="hero-image reveal">
+            <img src="Pas Foto 5.png" alt="Foto Algi Alghifari" onerror="this.src='https://via.placeholder.com/380x380.png?text=Foto+Kamu'">
+        </div>
+    </section>
+
+    <div class="animated-divider"></div>
+
+    <!-- TENTANG SAYA & PENDIDIKAN -->
+       <!-- TENTANG SAYA & PENDIDIKAN -->
+    <section id="tentang">
+        <div class="section-header reveal">
+            <h2>Tentang Saya</h2>
+        </div>
+        <div class="grid-2" style="align-items: stretch;">
+            
+            <!-- Card Profil Singkat -->
+            <div class="card theme-blue reveal tilt">
+                <h3><i class="fas fa-user-tie"></i> Profil Singkat</h3>
+                <!-- Teks dipecah jadi 3 paragraf -->
+                <p style="color: var(--text-muted); margin-bottom: 12px;">Memiliki ketertarikan besar di bidang infrastruktur jaringan, IT Support, serta pengolahan data administrasi. Terbiasa melakukan troubleshooting perangkat, konfigurasi jaringan (MikroTik, Linux Server), serta pengelolaan data terstruktur.</p>
+                <p style="color: var(--text-muted); margin-bottom: 12px;">Terbiasa menggunakan aplikasi <em>Remote Desktop</em> seperti AnyDesk, TeamViewer, dan UltraViewer untuk memberikan dukungan teknis (<em>remote support</em>) secara efisien kepada pengguna.</p>
+                
+            </div>
+
+            <!-- Card Pendidikan -->
+            <div class="card theme-blue reveal tilt">
+                <h3><i class="fas fa-graduation-cap"></i> Pendidikan</h3>
+                <h4 style="color: var(--text-dark);">Politeknik Sukabumi | 2022 - 2025</h4>
+                <p style="color: var(--text-muted); margin-top: 10px;">
+                    <strong>Program Studi:</strong> D3 Teknik Komputer<br>
+                    <strong>IPK:</strong> 3.51 / 4.00 (Predikat Pujian / Excellent)<br>
+                    <strong>Fokus Karir:</strong> IT Support, Network Engineering, dan Administrasi Data.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <div class="animated-divider"></div>
+
+    <!-- PENGALAMAN KERJA & PROYEK -->
+    <section id="pengalaman">
+        <div class="section-header reveal">
+            <h2>Pengalaman Praktis & Proyek</h2>
+            <p style="color: var(--text-muted);">Bukti nyata penerapan keahlian IT Support, Jaringan, dan Administrasi.</p>
+        </div>
+        
+        <div class="timeline">
+            <!-- PENGALAMAN MAGANG -->
+            <div class="card theme-gold reveal tilt timeline-item">
+                <h3><i class="fas fa-briefcase"></i> Data Entry (Internship)</h3>
+                <span class="timeline-date">Badan Pusat Statistik (BPS) Kota Sukabumi | Agustus 2024 - November 2024</span>
+                <ul>
+                    <li>Melakukan input dan validasi 20–50 data survei per hari dengan akurasi tinggi.</li>
+                    <li>Merekapitulasi dan memeriksa kelengkapan data harian untuk laporan administrasi.</li>
+                    <li>Mengelola dan mengarsipkan dokumen digital secara terstruktur.</li>
+                </ul>
+            </div>
+
+                     <!-- PROYEK 1: MIKROTIK -->
+            <div class="card theme-purple reveal tilt timeline-item">
+                <h3><i class="fas fa-wifi"></i> Pemanfaatan Hotspot & Routing MikroTik</h3>
+                <span class="timeline-date">Mata Kuliah Jaringan Komputer (Proyek Kelompok 7)</span>
+                
+                <p style="color: var(--text-muted); margin-bottom: 15px; font-size: 0.95rem;"><strong>Deskripsi Proyek:</strong> Merancang dan membangun infrastruktur jaringan lokal (LAN) serta sistem Hotspot terpusat menggunakan perangkat MikroTik RouterOS dan aplikasi WinBox. Proyek ini bertujuan untuk mendistribusikan koneksi internet secara aman dan terkelola kepada client.</p>
+                
+                <p style="color: var(--text-dark); font-weight: 600; margin-bottom: 10px;">Peran & Tanggung Jawab:</p>
+                <ul>
+                    <li><strong>Konfigurasi Dasar:</strong> Mengatur IP Address pada interface (Ethernet & Wireless) serta konfigurasi Static Route agar terhubung ke ISP.</li>
+                    <li><strong>Manajemen Jaringan:</strong> Mengonfigurasi DHCP Server untuk pembagian IP otomatis kepada client.</li>
+                    <li><strong>Keamanan & Akses:</strong> Menerapkan Firewall NAT (Masquerade) agar client dapat mengakses internet, serta pembuatan User Manager pada sistem Hotspot untuk pembatasan akses.</li>
+                    <li><strong>Sistem Autentikasi:</strong> Membangun halaman Login Hotspot kustom (Voucher/Member) yang terintegrasi dengan sistem Billing (Desa Digital).</li>
+                    <li><strong>Pengujian:</strong> Melakukan Ping Test dan Speedtest dari sisi client (Laptop/Smartphone) untuk memastikan stabilitas koneksi.</li>
+                </ul>
+                
+                <p style="color: var(--text-dark); font-weight: 600; margin-bottom: 5px;">Alat & Teknologi:</p>
+                <div class="tags" style="margin-bottom: 20px;">
+                    <span class="tag"><i class="fas fa-network-wired"></i> MikroTik RouterBoard</span>
+                    <span class="tag"><i class="fas fa-desktop"></i> WinBox</span>
+                    <span class="tag"><i class="fas fa-wifi"></i> Wireless LAN (WLAN)</span>
+                    <span class="tag"><i class="fas fa-ethernet"></i> Kabel UTP</span>
+                </div>
+
+                <!-- GALERI GAMBAR PROYEK 1 -->
+                <p style="color: var(--text-dark); font-weight: 600; margin-bottom: 10px;">Dokumentasi Visual:</p>
+                <div class="project-gallery" style="margin-bottom: 20px;">
+                    <div class="gallery-item"><img src="topologi.jpg" alt="Topologi Jaringan" onerror="this.src='https://via.placeholder.com/300x200.png?text=Topologi'"></div>
+                    <div class="gallery-item"><img src="login.jpg" alt="Login Hotspot" onerror="this.src='https://via.placeholder.com/300x200.png?text=Login+Hotspot'"></div>
+                    <div class="gallery-item"><img src="pengujian.jpg" alt="Speedtest" onerror="this.src='https://via.placeholder.com/300x200.png?text=Speedtest'"></div>
+                </div>
+
+                <!-- DOKUMENTASI LAPORAN PROYEK MIKROTIK -->
+                <div style="background: #f8fafc; border-left: 4px solid #8b5cf6; padding: 15px 20px; border-radius: 0 8px 8px 0; margin-top: 25px; margin-bottom: 20px;">
+                    <p style="color: var(--text-dark); font-weight: 700; font-size: 0.95rem; margin-bottom: 5px;">
+                        <i class="fas fa-file-alt" style="color: #8b5cf6;"></i> Catatan Dokumentasi Proyek:
+                    </p>
+                    <p style="font-size: 0.9rem; color: var(--text-muted); margin: 0; line-height: 1.6;">
+                        Proyek ini melibatkan banyak tahapan konfigurasi teknis. Oleh karena itu, dokumentasi lengkap (berupa langkah konfigurasi, <em>screenshot</em> detail, dan hasil pengujian) telah saya rangkum ke dalam <strong>Laporan Praktikum (PDF)</strong>. Silakan klik tombol di bawah ini untuk melihat detail laporannya.
+                    </p>
+                </div>
+                
+                <div style="margin-top: 10px;">
+                    <!-- GANTI "LINK_LAPORAN_MIKROTIK" DENGAN LINK FILE DRIVE KAMU -->
+                    <a href="https://drive.google.com/file/d/1P1TIrwP_l2YjzdBcU0lJ2IhN7YtR8zrU/view?usp=sharing" target="_blank" style="display: inline-flex; align-items: center; gap: 12px; background: linear-gradient(90deg, #8b5cf6, #6d28d9); color: white; padding: 15px 30px; border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 1rem; transition: 0.3s; box-shadow: 0 6px 15px rgba(139, 92, 246, 0.4);" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 8px 20px rgba(139, 92, 246, 0.6)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 6px 15px rgba(139, 92, 246, 0.4)';">
+                        <i class="fas fa-file-pdf" style="font-size: 1.5rem;"></i> 
+                        Lihat Laporan Praktikum Lengkap
+                    </a>
+                </div>
+            </div>
+
+        
+                       <!-- PROYEK 2: LINUX SERVER -->
+            <div class="card theme-purple reveal tilt timeline-item">
+                <h3><i class="fas fa-server"></i> Konfigurasi Linux Server & Firewall</h3>
+                <span class="timeline-date">Proyek Praktikum / Ujian Praktik</span>
+                
+                               <p style="color: var(--text-muted); margin-bottom: 15px; font-size: 0.95rem;"><strong>Deskripsi Proyek:</strong> Melakukan konfigurasi dan manajemen Router MikroTik secara menyeluruh (mulai dari routing dasar, keamanan firewall, manajemen DHCP, hingga pemblokiran akses web) untuk membangun infrastruktur jaringan laboratorium yang aman, terkontrol, dan sesuai standar operasional.</p>
+                
+                <p style="color: var(--text-dark); font-weight: 600; margin-bottom: 10px;">Peran & Tanggung Jawab:</p>
+                <ul>
+                    <li><strong>Konfigurasi Dasar Router:</strong> Menambahkan lisensi ujicoba, mengubah hostname & password user, serta menamai interface (Internet & LAN) sesuai standar. Mengatur IP Address secara statis pada masing-masing interface.</li>
+                    <li><strong>Firewall NAT & Filtering:</strong> Membuat konfigurasi Firewall NAT agar client dapat terhubung ke internet. Menerapkan pembatasan akses (Firewall Filter) pada jam operasional tertentu (08.00 - 14.00) dan memblokir akses ke IP tertentu.</li>
+                    <li><strong>Keamanan Jaringan:</strong> Memblokir Port 8291 (WinBox) dari jaringan lokal untuk mencegah akses tidak sah, serta melakukan uji coba konektivitas jaringan internet dan lokal.</li>
+                    <li><strong>Manajemen DHCP:</strong> Mengonfigurasi DHCP Server agar client mendapatkan IP otomatis, serta menerapkan pembatasan akses client berdasarkan MAC Address yang terdaftar.</li>
+                    <li><strong>Web Proxy & Filtering:</strong> Mengaktifkan fitur Web Proxy pada Router untuk memblokir akses ke situs web tertentu (seperti YouTube) dan mencegah pengunduhan file berjenis MP4 oleh client.</li>
+                </ul>
+                
+                <p style="color: var(--text-dark); font-weight: 600; margin-bottom: 5px;">Alat & Teknologi:</p>
+                <div class="tags" style="margin-bottom: 20px;">
+                    <span class="tag"><i class="fas fa-network-wired"></i> MikroTik RouterOS</span>
+                    <span class="tag"><i class="fas fa-desktop"></i> WinBox</span>
+                    <span class="tag"><i class="fas fa-shield-alt"></i> Firewall (NAT & Filter)</span>
+                    <span class="tag"><i class="fas fa-server"></i> DHCP Server</span>
+                    <span class="tag"><i class="fas fa-globe"></i> Web Proxy</span>
+                </div>
+
+                <!-- DOKUMENTASI VIDEO PROYEK LINUX (FOLDER GDRIVE) -->
+                <div style="background: #f8fafc; border-left: 4px solid #8b5cf6; padding: 15px 20px; border-radius: 0 8px 8px 0; margin-top: 25px; margin-bottom: 20px;">
+                    <p style="color: var(--text-dark); font-weight: 700; font-size: 0.95rem; margin-bottom: 5px;">
+                        <i class="fas fa-info-circle" style="color: #8b5cf6;"></i> Catatan Dokumentasi Proyek:
+                    </p>
+                    <p style="font-size: 0.9rem; color: var(--text-muted); margin: 0; line-height: 1.6;">
+                        Untuk proyek praktikum Linux Server & Firewall ini, dokumentasi yang saya lampirkan <strong>bukan berupa foto</strong>, melainkan <strong>rekaman video praktik langsung (screen recording)</strong>. Hal ini bertujuan agar Bapak/Ibu HRD dapat melihat secara nyata proses konfigurasi yang saya lakukan. Silakan klik tombol di bawah untuk mengakses folder video.
+                    </p>
+                </div>
+                
+                <div style="margin-top: 10px;">
+                    <!-- GANTI "LINK_FOLDER_GDRIVE" DENGAN LINK FOLDER DRIVE KAMU -->
+                    <a href="https://drive.google.com/drive/folders/1pM5UuigOZanoI2-FjMtAYHCt1qebov7Y?usp=sharing" target="_blank" style="display: inline-flex; align-items: center; gap: 12px; background: linear-gradient(90deg, #8b5cf6, #6d28d9); color: white; padding: 15px 30px; border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 1rem; transition: 0.3s; box-shadow: 0 6px 15px rgba(139, 92, 246, 0.4);" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 8px 20px rgba(139, 92, 246, 0.6)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 6px 15px rgba(139, 92, 246, 0.4)';">
+                        <i class="fab fa-google-drive" style="font-size: 1.5rem;"></i> 
+                        Buka Folder Video Dokumentasi
+                    </a>
+                </div>
+            </div>
+
+            <!-- PROYEK 3: VIRTUALIZATION -->
+            <div class="card theme-purple reveal tilt timeline-item">
+                <h3><i class="fas fa-cubes"></i> Virtualization & Containerization</h3>
+                <span class="timeline-date">Proyek Praktikum / Ujian Praktik</span>
+                
+                <p style="color: var(--text-muted); margin-bottom: 15px; font-size: 0.95rem;"><strong>Deskripsi Proyek:</strong> Membangun dan mengelola lingkungan virtualisasi serta melakukan *deployment* berbagai aplikasi nyata (Nextcloud, Plex Media Server, dan Laravel) menggunakan Docker, Docker Compose, dan Portainer pada sistem operasi Linux Debian 12 (VirtualBox).</p>
+                
+                <p style="color: var(--text-dark); font-weight: 600; margin-bottom: 10px;">Peran & Tanggung Jawab:</p>
+                <ul>
+                    <li><strong>Setup & Instalasi:</strong> Mengonfigurasi Virtual Machine (Debian 12) di VirtualBox, melakukan instalasi Docker Engine, Docker Compose, dan Portainer CE untuk manajemen kontainer berbasis GUI.</li>
+                    <li><strong>Deployment Nextcloud:</strong> Membuat *Dockerfile* dan *docker-compose.yaml* kustom untuk membangun layanan *cloud storage* (Nextcloud) beserta databasenya secara terisolasi.</li>
+                    <li><strong>Deployment Plex Media Server:</strong> Menjalankan kontainer Plex menggunakan perintah *Docker run* dengan konfigurasi *network host* dan *volume mapping* untuk manajemen file media.</li>
+                    <li><strong>Deployment Laravel & MySQL:</strong> Membangun *image* aplikasi web berbasis PHP (Laravel) via *Dockerfile*, mengonfigurasi *web server* (Apache), database (MySQL), dan phpMyAdmin melalui *Docker Compose*.</li>
+                    <li><strong>Manajemen & Troubleshooting:</strong> Melakukan konfigurasi virtual host pada kontainer, mengelola *volume* data, serta memonitor *resource* (CPU/RAM) kontainer melalui *dashboard* Portainer.</li>
+                </ul>
+                
+                <p style="color: var(--text-dark); font-weight: 600; margin-bottom: 5px;">Alat & Teknologi:</p>
+                <div class="tags" style="margin-bottom: 20px;">
+                    <span class="tag"><i class="fab fa-docker"></i> Docker & Compose</span>
+                    <span class="tag"><i class="fas fa-dharmachakra"></i> Portainer CE</span>
+                    <span class="tag"><i class="fas fa-server"></i> Proxmox / VirtualBox</span>
+                    <span class="tag"><i class="fab fa-linux"></i> Linux Debian 12</span>
+                    <span class="tag"><i class="fas fa-database"></i> MySQL & phpMyAdmin</span>
+                </div>
+
+                <!-- DOKUMENTASI LAPORAN PROYEK VIRTUALISASI -->
+                <div style="background: #f8fafc; border-left: 4px solid #8b5cf6; padding: 15px 20px; border-radius: 0 8px 8px 0; margin-top: 25px; margin-bottom: 20px;">
+                    <p style="color: var(--text-dark); font-weight: 700; font-size: 0.95rem; margin-bottom: 5px;">
+                        <i class="fas fa-file-alt" style="color: #8b5cf6;"></i> Catatan Dokumentasi Proyek:
+                    </p>
+                    <p style="font-size: 0.9rem; color: var(--text-muted); margin: 0; line-height: 1.6;">
+                        Proyek ini melibatkan banyak tahapan konfigurasi teknis. Oleh karena itu, dokumentasi lengkap (berupa <em>screenshot</em> langkah demi langkah, konfigurasi Dockerfile, dan hasil *deployment*) telah saya rangkum ke dalam <strong>Laporan Praktikum (PDF)</strong>. Silakan klik tombol di bawah ini untuk melihat detail laporannya.
+                    </p>
+                </div>
+                
+                <div style="margin-top: 10px;">
+                    <!-- GANTI "LINK_FILE_LAPORAN_DOCKER" DENGAN LINK FILE DARI GOOGLE DRIVE KAMU -->
+                    <a href="https://drive.google.com/file/d/13A3c5YsYSkt8L2Aa_EpRfkBnSjcuvEMq/view?usp=sharing" target="_blank" style="display: inline-flex; align-items: center; gap: 12px; background: linear-gradient(90deg, #8b5cf6, #6d28d9); color: white; padding: 15px 30px; border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 1rem; transition: 0.3s; box-shadow: 0 6px 15px rgba(139, 92, 246, 0.4);" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 8px 20px rgba(139, 92, 246, 0.6)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 6px 15px rgba(139, 92, 246, 0.4)';">
+                        <i class="fas fa-file-pdf" style="font-size: 1.5rem;"></i> 
+                        Lihat Laporan Praktikum Lengkap
+                    </a>
+                </div>
+    </section>
+
+    <div class="animated-divider"></div>
+
+    <!-- SECTION APLIKASI & TOOLS -->
+      <!-- SECTION APLIKASI & TOOLS -->
+    <section id="aplikasi">
+        <div class="section-header reveal">
+            <h2>Aplikasi & Tools yang Dikuasai</h2>
+            <p style="color: var(--text-muted);">Software dan platform yang biasa saya gunakan untuk operasional IT dan Administrasi.</p>
+        </div>
+        
+        <div class="grid-2" style="align-items: stretch;">
+            <!-- Tools IT Support -->
+            <div class="card theme-cyan reveal tilt" style="display: flex; flex-direction: column;">
+                <h3><i class="fas fa-tools" style="color: #06b6d4;"></i> Tools IT Support & Networking</h3>
+                <div class="tags" style="align-content: flex-start;">
+                    <span class="tag"><i class="fas fa-network-wired" style="color: #3b82f6;"></i> WinBox (MikroTik)</span>
+                    <span class="tag"><i class="devicon-linux-plain" style="color: #000000;"></i> Linux Debian (Terminal)</span>
+                    <span class="tag"><i class="fas fa-server" style="color: #f97316;"></i> Proxmox VE</span>
+                    <span class="tag"><i class="devicon-docker-plain" style="color: #2496ED;"></i> Docker</span>
+                    <span class="tag"><i class="fas fa-desktop" style="color: #EF4444;"></i> AnyDesk</span>
+                    <span class="tag"><i class="fas fa-desktop" style="color: #0E8EE9;"></i> TeamViewer</span>
+                    <span class="tag"><i class="fas fa-box" style="color: #1E3A8A;"></i> VirtualBox</span>
+                </div>
+            </div>
+
+            <!-- Tools Administrasi -->
+            <div class="card theme-cyan reveal tilt" style="display: flex; flex-direction: column;">
+                <h3><i class="fas fa-file-alt" style="color: #06b6d4;"></i> Tools Administrasi & Data</h3>
+                <div class="tags" style="align-content: flex-start;">
+                    <span class="tag"><i class="fas fa-file-excel" style="color: #107C41;"></i> Microsoft Excel</span>
+                    <span class="tag"><i class="fas fa-file-word" style="color: #2B579A;"></i> Microsoft Word</span>
+                    <span class="tag"><i class="fas fa-file-powerpoint" style="color: #D24726;"></i> PowerPoint</span>
+                    <span class="tag"><i class="fab fa-google" style="color: #4285F4;"></i> Google Workspace</span>
+                    <span class="tag"><i class="fas fa-file-pdf" style="color: #FF0000;"></i> Adobe Acrobat (PDF)</span>
+                    <span class="tag"><i class="fas fa-palette" style="color: #00C4CC;"></i> Canva</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="animated-divider"></div>
+
+    <!-- KEAHLIAN TEKNIS (HARD SKILLS DIPISAH) & SERTIFIKASI -->
+    <section id="keahlian">
+        <div class="section-header reveal">
+            <h2>Keahlian Teknis (Hard Skills)</h2>
+            <p style="color: var(--text-muted);">Dipisahkan berdasarkan bidang keahlian agar memudahkan penilaian.</p>
+        </div>
+        
+               <div class="grid-2" style="align-items: stretch;">
+                      <!-- Hard Skill IT Support -->
+            <div class="card theme-green reveal tilt" style="display: flex; flex-direction: column;">
+                <h3><i class="fas fa-network-wired"></i> IT Support & Networking</h3>
+                <div class="tags" style="align-content: flex-start;">
+                    <span class="tag">IT Support</span>
+                    <span class="tag">Hardware & Software Troubleshooting</span>
+                    <span class="tag">Network Troubleshooting</span>
+                    <span class="tag">User Support</span>
+                    <span class="tag">Helpdesk Support</span>
+                    <span class="tag">Remote Support</span>
+                    <span class="tag">Konfigurasi Jaringan (IP Address, LAN, Wi-Fi)</span>
+                    <span class="tag">Troubleshooting Konektivitas (TCP/IP, DNS, DHCP)</span>
+                </div>
+            </div>
+
+            <!-- Hard Skill Administrasi -->
+            <div class="card theme-teal reveal tilt" style="display: flex; flex-direction: column;">
+                <h3><i class="fas fa-database"></i> Administrasi & Pengolahan Data</h3>
+                <div class="tags" style="align-content: flex-start;">
+                    <span class="tag">Data Entry & Data Validation</span>
+                    <span class="tag">Microsoft Excel (VLOOKUP, HLOOKUP, dll)</span>
+                    <span class="tag">Microsoft Office (Word, Excel, PowerPoint)</span>
+                    <span class="tag">Document Management (Pengarsipan)</span>
+                    <span class="tag">Penyusunan Laporan Administrasi</span>
+                    <span class="tag">Administrasi Operasional</span>
+                    <span class="tag">Administrative Documentation</span>
+                </div>
+            </div>
+        </div>
+
+               <!-- SERTIFIKASI -->
+        <div class="section-header reveal" style="margin-top: 60px;">
+            <h2>Sertifikasi Resmi</h2>
+        </div>
+        <div class="grid-2">
+            <!-- Sertifikat 1 -->
+            <div class="card theme-coral reveal tilt" style="display: flex; flex-direction: column; justify-content: space-between;">
+                <div>
+                    <h3><i class="fas fa-certificate"></i> Microsoft Excel – Pengolahan Data</h3>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 20px;">Diterbitkan oleh: Cakap × Microsoft × Kemenko Perekonomian RI (Skills for Jobs Indonesia).</p>
+                </div>
+                <!-- GANTI "LINK_SERTIFIKAT_1" DENGAN LINK GOOGLE DRIVE SERTIFIKAT 1 -->
+                <a href="https://drive.google.com/file/d/1VtyXmird3GAplmDfnZ9CoTosyRPrl5tB/view?usp=sharing" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; background-color: #f43f5e; color: white; padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9rem; width: fit-content; transition: 0.3s; box-shadow: 0 4px 6px rgba(244, 63, 94, 0.3);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 12px rgba(244, 63, 94, 0.4)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 6px rgba(244, 63, 94, 0.3)';">
+                    <i class="fas fa-external-link-alt"></i> Lihat Sertifikat
+                </a>
+            </div>
+
+            <!-- Sertifikat 2 -->
+            <div class="card theme-coral reveal tilt" style="display: flex; flex-direction: column; justify-content: space-between;">
+                <div>
+                    <h3><i class="fas fa-certificate"></i> Microsoft Excel – VLOOKUP & INDEX-MATCH</h3>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 20px;">Diterbitkan oleh: MySkill | Short Class.</p>
+                </div>
+                <!-- GANTI "LINK_SERTIFIKAT_2" DENGAN LINK GOOGLE DRIVE SERTIFIKAT 2 -->
+                <a href="https://drive.google.com/file/d/15ENXhUNMuFhk0_48ISFgt50Be1fTg1oz/view?usp=sharing" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; background-color: #f43f5e; color: white; padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9rem; width: fit-content; transition: 0.3s; box-shadow: 0 4px 6px rgba(244, 63, 94, 0.3);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 12px rgba(244, 63, 94, 0.4)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 6px rgba(244, 63, 94, 0.3)';">
+                    <i class="fas fa-external-link-alt"></i> Lihat Sertifikat
+                </a>
+            </div>
+        </div>
+
+        <!-- SOFT SKILLS -->
+        <div class="section-header reveal" style="margin-top: 60px;">
+            <h2>Soft Skills</h2>
+        </div>
+              <div class="card theme-coral reveal tilt">
+            <div class="grid-2">
+                <!-- Kolom Kiri (3 Soft Skills) -->
+                <div>
+                    <div class="skill-bar">
+                        <div class="skill-info"><span>Communication Skills</span><span>90%</span></div>
+                        <div class="progress-line"><span data-width="90%"></span></div>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-info"><span>Problem Solving</span><span>85%</span></div>
+                        <div class="progress-line"><span data-width="85%"></span></div>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-info"><span>Teamwork</span><span>95%</span></div>
+                        <div class="progress-line"><span data-width="95%"></span></div>
+                    </div>
+                </div>
+                
+                <!-- Kolom Kanan (3 Soft Skills) -->
+                <div>
+                    <div class="skill-bar">
+                        <div class="skill-info"><span>Time Management</span><span>88%</span></div>
+                        <div class="progress-line"><span data-width="88%"></span></div>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-info"><span>Adaptability</span><span>92%</span></div>
+                        <div class="progress-line"><span data-width="92%"></span></div>
+                    </div>
+                    <div class="skill-bar">
+                        <!-- TAMBAHAN BARU DI SINI -->
+                        <div class="skill-info"><span>Attention to Detail</span><span>94%</span></div>
+                        <div class="progress-line"><span data-width="94%"></span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="animated-divider"></div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 <span>Algi Alghifari</span>. Dibuat dengan semangat untuk MagangHub Batch 3.</p>
+    </footer>
+
+    <button id="backToTop" title="Kembali ke atas"><i class="fas fa-arrow-up"></i></button>
+
+    <!-- LIBRARY PARTIKEL & TILT JS -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.2/vanilla-tilt.min.js"></script>
+
+    <!-- JAVASCRIPT CUSTOM -->
+    <script>
+        // 1. Partikel Background
+        particlesJS("particles-js", {
+            "particles": {
+                "number": { "value": 30, "density": { "enable": true, "value_area": 800 } },
+                "color": { "value": "#1e3a8a" },
+                "shape": { "type": "circle" },
+                "opacity": { "value": 0.2 },
+                "size": { "value": 3, "random": true },
+                "line_linked": { "enable": true, "distance": 150, "color": "#d97706", "opacity": 0.2, "width": 1 },
+                "move": { "enable": true, "speed": 2, "direction": "none", "out_mode": "out" }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": { "onhover": { "enable": true, "mode": "grab" } }
+            },
+            "retina_detect": true
+        });
+
+        // 2. Animasi Muncul Saat Scroll
+        const reveals = document.querySelectorAll('.reveal');
+        
+        const revealOnScroll = () => {
+            const windowHeight = window.innerHeight;
+            const elementVisible = 100;
+
+            reveals.forEach((reveal) => {
+                const elementTop = reveal.getBoundingClientRect().top;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveal.classList.add('active');
+                    const progressBars = reveal.querySelectorAll('.progress-line span');
+                    progressBars.forEach(bar => {
+                        bar.style.width = bar.getAttribute('data-width');
+                    });
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll(); 
+
+        // 3. Back to Top
+        const backToTopBtn = document.getElementById("backToTop");
+        window.onscroll = function() {
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                backToTopBtn.classList.add("show");
+            } else {
+                backToTopBtn.classList.remove("show");
+            }
+        };
+        backToTopBtn.addEventListener("click", function() {
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        });
+
+        // 4. Efek 3D Tilt
+        VanillaTilt.init(document.querySelectorAll(".tilt"), {
+            max: 5,
+            speed: 400,
+            glare: true,
+            "max-glare": 0.15,
+        });
+    </script>
+</body>
+</html>
